@@ -91,7 +91,7 @@ angular.module('slick', [])
           if !angular.isUndefinded(newVal) and not isInitialized
             $timeout(() ->
               initializeSlick()
-            , 500)
+            , 0)
             isInitialized = true
         )
       else
