@@ -88,8 +88,10 @@ angular.module('slick', [])
       if scope.initOnload
         isInitialized = false
         scope.$watch("data", (newVal, oldVal) ->
-          if newVal? and not isInitialized
-            initializeSlick()
+          if !angular.isUndefinded(newVal) and not isInitialized
+            $timeout(() ->
+              initializeSlick()
+            , 500)
             isInitialized = true
         )
       else
